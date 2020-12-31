@@ -1,7 +1,7 @@
 {
-    "name": "laravel-notification-channels/jet-sms",
+    "name": "bmericc/jet-sms",
     "description": "Sends SMS using JetSms API",
-    "homepage": "https://github.com/laravel-notification-channels/jet-sms",
+    "homepage": "https://github.com/bmericc/jet-sms",
     "license": "MIT",
     "authors": [
         {
@@ -13,14 +13,14 @@
     ],
     "require": {
         "php": ">=7.2",
-        "erdemkeren/jet-sms-php": "^1.0",
+        "bmericc/jet-sms-php": "dev-master",
         "illuminate/notifications": "^6.0 || ^7.0",
         "illuminate/queue": "^6.0 || ^7.0",
         "illuminate/support": "^6.0 || ^7.0"
     },
     "require-dev": {
-        "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "^8.0"
+        "mockery/mockery": "^1.3.1",
+        "phpunit/phpunit": "^9.3"
     },
     "autoload": {
         "psr-4": {
@@ -37,5 +37,11 @@
     },
     "config": {
         "sort-packages": true
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:bmericc/jet-sms-php.git"
+        }
+    ]
 }
