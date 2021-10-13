@@ -37,11 +37,5 @@
     },
     "config": {
         "sort-packages": true
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:bmericc/jet-sms-php.git"
-        }
-    ]
+    }
 }
