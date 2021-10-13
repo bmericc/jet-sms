@@ -7,7 +7,7 @@ use Mockery as M;
 use NotificationChannels\JetSms\JetSms;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\JetSms\JetSmsChannel;
-use Erdemkeren\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
 use NotificationChannels\JetSms\Exceptions\CouldNotSendNotification;
 
 class JetSmsChannelTest extends \PHPUnit_Framework_TestCase

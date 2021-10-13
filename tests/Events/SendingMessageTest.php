@@ -3,7 +3,7 @@
 namespace NotificationChannels\JetSMS\Test\Events;
 
 use Mockery as M;
-use Erdemkeren\JetSms\ShortMessage;
+use BahriCanli\JetSms\ShortMessage;
 use NotificationChannels\JetSms\Events\SendingMessage;
 
 class SendingMessageTest extends \PHPUnit_Framework_TestCase

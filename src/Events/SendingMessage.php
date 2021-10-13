@@ -2,7 +2,7 @@
 
 namespace NotificationChannels\JetSms\Events;
 
-use Erdemkeren\JetSms\ShortMessage;
+use BahriCanli\JetSms\ShortMessage;
 
 /**
  * Class SendingMessage.

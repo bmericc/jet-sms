@@ -2,7 +2,7 @@
 
 namespace NotificationChannels\JetSms;
 
-use Erdemkeren\JetSms\ShortMessage;
+use BahriCanli\JetSms\ShortMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\JetSms\Exceptions\CouldNotSendNotification;
 

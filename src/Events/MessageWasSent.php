@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\JetSms\Events;
 
-use Erdemkeren\JetSms\ShortMessage;
-use Erdemkeren\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\JetSms\ShortMessage;
+use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
 
 /**
  * Class MessageWasSent.

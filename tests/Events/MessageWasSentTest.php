@@ -3,9 +3,9 @@
 namespace NotificationChannels\JetSMS\Test\Events;
 
 use Mockery as M;
-use Erdemkeren\JetSms\ShortMessage;
+use BahriCanli\JetSms\ShortMessage;
 use NotificationChannels\JetSms\Events\MessageWasSent;
-use Erdemkeren\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
 
 class MessageWasSentTest extends \PHPUnit_Framework_TestCase
 {

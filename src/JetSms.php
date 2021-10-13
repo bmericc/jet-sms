@@ -3,7 +3,7 @@
 namespace NotificationChannels\JetSms;
 
 use Illuminate\Support\Facades\Facade;
-use Erdemkeren\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
 
 /**
  * Class JetSms.

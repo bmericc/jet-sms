@@ -4,14 +4,14 @@ namespace NotificationChannels\JetSms;
 
 use GuzzleHttp\Client;
 use UnexpectedValueException;
-use Erdemkeren\JetSms\Http\Clients;
-use Erdemkeren\JetSms\ShortMessage;
-use Erdemkeren\JetSms\JetSmsService;
+use BahriCanli\JetSms\Http\Clients;
+use BahriCanli\JetSms\ShortMessage;
+use BahriCanli\JetSms\JetSmsService;
 use Illuminate\Support\ServiceProvider;
-use Erdemkeren\JetSms\ShortMessageFactory;
-use Erdemkeren\JetSms\ShortMessageCollection;
-use Erdemkeren\JetSms\ShortMessageCollectionFactory;
-use Erdemkeren\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\JetSms\ShortMessageFactory;
+use BahriCanli\JetSms\ShortMessageCollection;
+use BahriCanli\JetSms\ShortMessageCollectionFactory;
+use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
 
 /**
  * Class JetSmsServiceProvider.
