@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.6.4",
-        "erdemkeren/jet-sms-php": "^1.0",
+        "bmericc/jet-sms-php": "dev-stable",
         "illuminate/notifications": "^5.3",
         "illuminate/queue": "^5.1|^5.2|^5.3",
         "illuminate/support": "^5.1|^5.2|^5.3"
@@ -37,5 +37,11 @@
     },
     "config": {
         "sort-packages": true
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:bmericc/jet-sms-php.git"
+        }
+    ]
 }
