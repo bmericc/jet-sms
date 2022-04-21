@@ -1,9 +1,9 @@
 <?php
 
-namespace NotificationChannels\Corvass\Events;
+namespace NotificationChannels\JetSms\Events;
 
-use BahriCanli\Corvass\ShortMessageCollection;
-use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
+use BahriCanli\JetSms\ShortMessageCollection;
+use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
 
 /**
  * Class MessagesWereSent.
@@ -20,7 +20,7 @@ class MessagesWereSent
     /**
      * The Api response implementation.
      *
-     * @var CorvassResponseInterface
+     * @var JetSmsResponseInterface
      */
     public $response;
 
@@ -28,9 +28,9 @@ class MessagesWereSent
      * MessageWasSent constructor.
      *
      * @param ShortMessageCollection  $messages
-     * @param CorvassResponseInterface $response
+     * @param JetSmsResponseInterface $response
      */
-    public function __construct(ShortMessageCollection $messages, CorvassResponseInterface $response)
+    public function __construct(ShortMessageCollection $messages, JetSmsResponseInterface $response)
     {
         $this->messages = $messages;
         $this->response = $response;
