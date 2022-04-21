@@ -1,10 +1,10 @@
 <?php
 
-namespace NotificationChannels\JetSMS\Test\Events;
+namespace NotificationChannels\Corvass\Test\Events;
 
 use Mockery as M;
-use BahriCanli\JetSms\ShortMessage;
-use NotificationChannels\JetSms\Events\SendingMessage;
+use BahriCanli\Corvass\ShortMessage;
+use NotificationChannels\Corvass\Events\SendingMessage;
 
 class SendingMessageTest extends \PHPUnit_Framework_TestCase
 {

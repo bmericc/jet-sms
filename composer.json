@@ -1,6 +1,6 @@
 {
     "name": "bmericc/jet-sms",
-    "description": "Sends SMS using JetSms API",
+    "description": "Sends SMS using Corvass API",
     "homepage": "https://github.com/laravel-notification-channels/jet-sms",
     "version": "1.0.0",
     "type": "library",
@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\JetSms\\": "src"
+            "NotificationChannels\\Corvass\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\JetSms\\Test\\": "tests"
+            "NotificationChannels\\Corvass\\Test\\": "tests"
         }
     },
     "scripts": {

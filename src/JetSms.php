@@ -1,17 +1,17 @@
 <?php
 
-namespace NotificationChannels\JetSms;
+namespace NotificationChannels\Corvass;
 
 use Illuminate\Support\Facades\Facade;
-use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
 
 /**
- * Class JetSms.
+ * Class Corvass.
  *
- * @method static JetSmsResponseInterface sendShortMessage(array|string $receivers, string|null $body = null)
- * @method static JetSmsResponseInterface sendShortMessages(array $messages)
+ * @method static CorvassResponseInterface sendShortMessage(array|string $receivers, string|null $body = null)
+ * @method static CorvassResponseInterface sendShortMessages(array $messages)
  */
-class JetSms extends Facade
+class Corvass extends Facade
 {
     /**
      * Get the registered name of the component.

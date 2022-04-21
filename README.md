@@ -1,4 +1,4 @@
-# JetSms Notification Channel For Laravel 5.3
+# Corvass Notification Channel For Laravel 5.3
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/jet-sms.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/jet-sms)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -9,12 +9,12 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/jet-sms/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/jet-sms/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/jet-sms.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/jet-sms)
 
-This package makes it easy to send notifications using [JetSms](http://www.jetsms.net) with Laravel 5.3.
+This package makes it easy to send notifications using [Corvass](http://www.jetsms.net) with Laravel 5.3.
 
 ## Contents
 
 - [Installation](#installation)
-    - [Setting up the JetSms service](#setting-up-the-jetSms-service)
+    - [Setting up the Corvass service](#setting-up-the-jetSms-service)
 - [Usage](#usage)
     - [Available methods](#available-methods)
     - [Available events](#available-events)
@@ -41,24 +41,24 @@ Next add the service provider to your `config/app.php`:
  * Package Service Providers...
  */
 
-NotificationChannels\JetSms\JetSmsServiceProvider::class,
+NotificationChannels\Corvass\CorvassServiceProvider::class,
 ```
 
-Register the JetSms alias to your application.
+Register the Corvass alias to your application.
 This registration is not optional because the channel itself uses this very alias.
 
 ```php
-'JetSms' => NotificationChannels\JetSms\JetSms::class,
+'Corvass' => NotificationChannels\Corvass\Corvass::class,
 ```
 
-### Setting up the JetSms service
+### Setting up the Corvass service
 
 Add your desired client, username, password, originator (outbox name, sender name) and request timeout
 configuration to your `config/services.php` file:
                                                                      
 ```php
 ...
-    'JetSms' => [
+    'Corvass' => [
         'client'     => 'http', // or xml
         'http'       => [
             'endpoint' => 'https://service.jetsms.com.tr/SMS-Web/HttpSmsSend',
@@ -79,8 +79,8 @@ configuration to your `config/services.php` file:
 Now you can use the channel in your via() method inside the notification:
 
 ```php
-use NotificationChannels\JetSms\JetSmsChannel;
-use NotificationChannels\JetSms\JetSmsMessage;
+use NotificationChannels\Corvass\CorvassChannel;
+use NotificationChannels\Corvass\CorvassMessage;
 
 class ResetPasswordWasRequested extends Notification
 {
@@ -92,16 +92,16 @@ class ResetPasswordWasRequested extends Notification
      */
     public function via($notifiable)
     {
-        return [JetSmsChannel::class];
+        return [CorvassChannel::class];
     }
     
     /**
-     * Get the JetSms representation of the notification.
+     * Get the Corvass representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return string|\NotificationChannels\JetSms\JetSmsMessage
+     * @return string|\NotificationChannels\Corvass\CorvassMessage
      */
-    public function toJetSms($notifiable) {
+    public function toCorvass($notifiable) {
         return "Test notification";
         // Or
         return new ShortMessage($notifiable->phone_number, 'Test notification');
@@ -109,14 +109,14 @@ class ResetPasswordWasRequested extends Notification
 }
 ```
 
-Don't forget to place the dedicated method for JetSms inside your notifiables. (e.g. User)
+Don't forget to place the dedicated method for Corvass inside your notifiables. (e.g. User)
 
 ```php
 class User extends Authenticatable
 {
     use Notifiable;
     
-    public function routeNotificationForJetSms()
+    public function routeNotificationForCorvass()
     {
         return "905123456789";
     }
@@ -125,12 +125,12 @@ class User extends Authenticatable
 
 ### Available methods
 
-JetSms can also be used directly to send short messages.
+Corvass can also be used directly to send short messages.
 
 Examples:
 ```php
-JetSms::sendShortMessage($to, $message);
-JetSms::sendShortMessages([[
+Corvass::sendShortMessage($to, $message);
+Corvass::sendShortMessages([[
     'recipient' => $to,
     'message'   => $message,
 ], [
@@ -143,12 +143,12 @@ see: [jet-sms-php](https://github.com/erdemkeren/jet-sms-php) documentation for 
 
 ### Available events
 
-JetSms Notification channel comes with handy events which provides the required information about the SMS messages.
+Corvass Notification channel comes with handy events which provides the required information about the SMS messages.
 
-1. **Message Was Sent** (`NotificationChannels\JetSms\Events\MessageWasSent`)
-2. **Messages Were Sent** (`NotificationChannels\JetSms\Events\MessageWasSent`)
-3. **Sending Message** (`NotificationChannels\JetSms\Events\SendingMessage`)
-4. **Sending Messages** (`NotificationChannels\JetSms\Events\SendingMessages`)
+1. **Message Was Sent** (`NotificationChannels\Corvass\Events\MessageWasSent`)
+2. **Messages Were Sent** (`NotificationChannels\Corvass\Events\MessageWasSent`)
+3. **Sending Message** (`NotificationChannels\Corvass\Events\SendingMessage`)
+4. **Sending Messages** (`NotificationChannels\Corvass\Events\SendingMessages`)
 
 Example:
 
@@ -157,7 +157,7 @@ namespace App\Listeners;
 
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use NotificationChannels\JetSms\Events\MessageWasSent;
+use NotificationChannels\Corvass\Events\MessageWasSent;
 
 class SentMessageHandler
 {

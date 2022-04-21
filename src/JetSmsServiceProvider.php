@@ -1,22 +1,22 @@
 <?php
 
-namespace NotificationChannels\JetSms;
+namespace NotificationChannels\Corvass;
 
 use GuzzleHttp\Client;
 use UnexpectedValueException;
-use BahriCanli\JetSms\Http\Clients;
-use BahriCanli\JetSms\ShortMessage;
-use BahriCanli\JetSms\JetSmsService;
+use BahriCanli\Corvass\Http\Clients;
+use BahriCanli\Corvass\ShortMessage;
+use BahriCanli\Corvass\CorvassService;
 use Illuminate\Support\ServiceProvider;
-use BahriCanli\JetSms\ShortMessageFactory;
-use BahriCanli\JetSms\ShortMessageCollection;
-use BahriCanli\JetSms\ShortMessageCollectionFactory;
-use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\Corvass\ShortMessageFactory;
+use BahriCanli\Corvass\ShortMessageCollection;
+use BahriCanli\Corvass\ShortMessageCollectionFactory;
+use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
 
 /**
- * Class JetSmsServiceProvider.
+ * Class CorvassServiceProvider.
  */
-class JetSmsServiceProvider extends ServiceProvider
+class CorvassServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -30,36 +30,36 @@ class JetSmsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerJetSmsClient();
-        $this->registerJetSmsService();
+        $this->registerCorvassClient();
+        $this->registerCorvassService();
     }
 
     /**
-     * Register the JetSms Client binding with the container.
+     * Register the Corvass Client binding with the container.
      *
      * @return void
      */
-    private function registerJetSmsClient()
+    private function registerCorvassClient()
     {
-        $this->app->bind(Clients\JetSmsClientInterface::class, function () {
+        $this->app->bind(Clients\CorvassClientInterface::class, function () {
             $client = null;
-            $username = config('services.JetSms.username');
-            $password = config('services.JetSms.password');
-            $originator = config('services.JetSms.originator');
+            $username = config('services.Corvass.username');
+            $password = config('services.Corvass.password');
+            $originator = config('services.Corvass.originator');
 
-            switch (config('services.JetSms.client', 'http')) {
+            switch (config('services.Corvass.client', 'http')) {
                 case 'http':
-                    $timeout = config('services.JetSms.timeout');
-                    $endpoint = config('services.JetSms.http.endpoint');
-                    $client = new Clients\JetSmsHttpClient(
+                    $timeout = config('services.Corvass.timeout');
+                    $endpoint = config('services.Corvass.http.endpoint');
+                    $client = new Clients\CorvassHttpClient(
                         new Client(['timeout' => $timeout]), $endpoint, $username, $password, $originator);
                     break;
                 case 'xml':
-                    $endpoint = config('services.JetSms.xml.endpoint');
-                    $client = new Clients\JetSmsXmlClient($endpoint, $username, $password, $originator);
+                    $endpoint = config('services.Corvass.xml.endpoint');
+                    $client = new Clients\CorvassXmlClient($endpoint, $username, $password, $originator);
                     break;
                 default:
-                    throw new UnexpectedValueException('Unknown JetSms API client has been provided.');
+                    throw new UnexpectedValueException('Unknown Corvass API client has been provided.');
             }
 
             return $client;
@@ -69,13 +69,13 @@ class JetSmsServiceProvider extends ServiceProvider
     /**
      * Register the jet-sms service.
      */
-    private function registerJetSmsService()
+    private function registerCorvassService()
     {
         $beforeSingle = function (ShortMessage $shortMessage) {
             event(new Events\SendingMessage($shortMessage));
         };
 
-        $afterSingle = function (JetSmsResponseInterface $response, ShortMessage $shortMessage) {
+        $afterSingle = function (CorvassResponseInterface $response, ShortMessage $shortMessage) {
             event(new Events\MessageWasSent($shortMessage, $response));
         };
 
@@ -83,13 +83,13 @@ class JetSmsServiceProvider extends ServiceProvider
             event(new Events\SendingMessages($shortMessages));
         };
 
-        $afterMany = function (JetSmsResponseInterface $response, ShortMessageCollection $shortMessages) {
+        $afterMany = function (CorvassResponseInterface $response, ShortMessageCollection $shortMessages) {
             event(new Events\MessagesWereSent($shortMessages, $response));
         };
 
         $this->app->singleton('jet-sms', function ($app) use ($beforeSingle, $afterSingle, $beforeMany, $afterMany) {
-            return new JetSmsService(
-                $app->make(Clients\JetSmsClientInterface::class),
+            return new CorvassService(
+                $app->make(Clients\CorvassClientInterface::class),
                 new ShortMessageFactory(),
                 new ShortMessageCollectionFactory(),
                 $beforeSingle,
@@ -109,7 +109,7 @@ class JetSmsServiceProvider extends ServiceProvider
     {
         return [
             'jet-sms',
-            Clients\JetSmsClientInterface::class,
+            Clients\CorvassClientInterface::class,
         ];
     }
 }
