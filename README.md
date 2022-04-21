@@ -9,7 +9,7 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/bahricanli/corvass/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/bahricanli/corvass/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/bahricanli/corvass.svg?style=flat-square)](https://packagist.org/packages/bahricanli/corvass)
 
-This package makes it easy to send notifications using [Corvass](http://www.jetsms.net) with Laravel 5.3.
+This package makes it easy to send notifications using [Corvass](http://www.corvass.com) with Laravel 5.3.
 
 ## Contents
 
