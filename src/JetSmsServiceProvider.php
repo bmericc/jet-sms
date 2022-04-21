@@ -67,7 +67,7 @@ class CorvassServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the jet-sms service.
+     * Register the corvass service.
      */
     private function registerCorvassService()
     {
@@ -87,7 +87,7 @@ class CorvassServiceProvider extends ServiceProvider
             event(new Events\MessagesWereSent($shortMessages, $response));
         };
 
-        $this->app->singleton('jet-sms', function ($app) use ($beforeSingle, $afterSingle, $beforeMany, $afterMany) {
+        $this->app->singleton('corvass', function ($app) use ($beforeSingle, $afterSingle, $beforeMany, $afterMany) {
             return new CorvassService(
                 $app->make(Clients\CorvassClientInterface::class),
                 new ShortMessageFactory(),
@@ -108,7 +108,7 @@ class CorvassServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'jet-sms',
+            'corvass',
             Clients\CorvassClientInterface::class,
         ];
     }

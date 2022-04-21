@@ -20,6 +20,6 @@ class Corvass extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'jet-sms';
+        return 'corvass';
     }
 }
