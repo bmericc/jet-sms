@@ -1,8 +1,8 @@
 <?php
 
-namespace NotificationChannels\Corvass\Events;
+namespace NotificationChannels\JetSms\Events;
 
-use BahriCanli\Corvass\ShortMessage;
+use BahriCanli\JetSms\ShortMessage;
 
 /**
  * Class SendingMessage.
@@ -10,7 +10,7 @@ use BahriCanli\Corvass\ShortMessage;
 class SendingMessage
 {
     /**
-     * The Corvass message.
+     * The JetSms message.
      *
      * @var ShortMessage
      */
