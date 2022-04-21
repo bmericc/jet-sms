@@ -1,20 +1,20 @@
 # Corvass Notification Channel For Laravel 5.3
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/corvass.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/corvass)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/bahricanli/corvass.svg?style=flat-square)](https://packagist.org/packages/bahricanli/corvass)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/laravel-notification-channels/corvass/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/corvass)
+[![Build Status](https://img.shields.io/travis/bahricanli/corvass/master.svg?style=flat-square)](https://travis-ci.org/bahricanli/corvass)
 [![StyleCI](https://styleci.io/repos/74304440/shield?branch=master)](https://styleci.io/repos/74304440)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/ce5f111f-1be4-4848-a87d-7b2570d153d4.svg?style=flat-square)](https://insight.sensiolabs.com/projects/ce5f111f-1be4-4848-a87d-7b2570d153d4)
-[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/corvass.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/corvass)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/corvass/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/corvass/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/corvass.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/corvass)
+[![Quality Score](https://img.shields.io/scrutinizer/g/bahricanli/corvass.svg?style=flat-square)](https://scrutinizer-ci.com/g/bahricanli/corvass)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/bahricanli/corvass/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/bahricanli/corvass/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/bahricanli/corvass.svg?style=flat-square)](https://packagist.org/packages/bahricanli/corvass)
 
 This package makes it easy to send notifications using [Corvass](http://www.jetsms.net) with Laravel 5.3.
 
 ## Contents
 
 - [Installation](#installation)
-    - [Setting up the Corvass service](#setting-up-the-jetSms-service)
+    - [Setting up the Corvass service](#setting-up-the-corvass-service)
 - [Usage](#usage)
     - [Available methods](#available-methods)
     - [Available events](#available-events)
@@ -31,7 +31,7 @@ This package makes it easy to send notifications using [Corvass](http://www.jets
 You can install this package via composer:
 
 ``` bash
-composer require laravel-notification-channels/corvass
+composer require bahricanli/corvass
 ```
 
 Next add the service provider to your `config/app.php`:
