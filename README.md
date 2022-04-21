@@ -61,10 +61,10 @@ configuration to your `config/services.php` file:
     'Corvass' => [
         'client'     => 'http', // or xml
         'http'       => [
-            'endpoint' => 'https://service.jetsms.com.tr/SMS-Web/HttpSmsSend',
+            'endpoint' => 'https://sms.corvass.net/http',
         ],
         'xml'        => [
-            'endpoint' => 'www.biotekno.biz:8080/SMS-Web/xmlsms',
+            'endpoint' => 'sms.corvass.net/xml',
         ],
         'username'   => '',
         'password'   => '',
