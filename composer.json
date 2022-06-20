@@ -16,9 +16,9 @@
     "require": {
         "php": "^7.3|^8.0",
         "bmericc/jet-sms-php": "^2.0",
-        "illuminate/notifications": "^5.3",
-        "illuminate/queue": "^5.1|^5.2|^5.3",
-        "illuminate/support": "^5.1|^5.2|^5.3"
+        "illuminate/notifications":  "^8.0",
+        "illuminate/queue":  "^8.0",
+        "illuminate/support":  "^8.0"
     },
     "require-dev": {
         "mockery/mockery": "^0.9.5",
