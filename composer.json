@@ -2,7 +2,7 @@
     "name": "bmericc/jet-sms",
     "description": "Sends SMS using JetSms API",
     "homepage": "https://github.com/laravel-notification-channels/jet-sms",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "type": "library",
     "license": "MIT",
     "authors": [
